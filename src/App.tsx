@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { Provider } from 'react-redux'
+import { useRoutes } from 'react-router-dom'
+import { ThemeProvider } from '@mui/material'
 
-function App() {
+import { store } from './libs'
+import routes from './route'
+import theme from './theme'
+
+import './App.css'
+
+const App: React.FC = () => {
+  const content = useRoutes(routes)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <HelmetProvider>
+      <Helmet title="CSCS SmartCheck App" defaultTitle="CSCS SmartCheck App" />
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>{content}</ThemeProvider>
+      </Provider>
+    </HelmetProvider>
+  )
 }
 
-export default App;
+export default App

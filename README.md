@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# Getting Started with CSCS SmartCheck WebApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To start and run in development mode, we need minimum `node 20.0.9`. Then install packages using YARN package manager.
+
+## Feature Folder/Directory
+
+Feature directory holds all the pages logics and files. Each page should be created under `/feature` directory first and then import it into `/pages` directory. The reason why we are using this directory structure is we will have a lot of logic going on under each page so each page will consider as a new feature. We will be adding redux files like actions, store etc under each feature separately to keep the code consistant and easy to manage.
+
+So any component which is more specifically related to page i.e not a generic component, will also be located under `/features/<page name>/component` directory.
+
+## Libs Folder/Directory
+
+Any new package we install will be setup separately under `/libs` directory. It will hold all the packages and will be exported directly from `/libs/index.ts` file.
+
+NOTE: Please don't use any package directly into any file.
+
+## Hooks Folder/Directory
+
+Any custom hook or package related hook will go under `/hooks` directory. We will manage hooks under `/hooks` directory.
 
 ## Available Scripts
 
